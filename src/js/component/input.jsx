@@ -1,13 +1,20 @@
 import React, { useState } from "react";
-import Listitem from "./listitem.jsx";
+import Todo from "./todo.jsx";
 
-const Input = () => {
+const Input = (props) => {
   
   const [input, setInput] = useState("");
   
   const handleSubmit = e =>{
 
     e.preventDefault();
+
+    props.onSubmit({
+
+        id: Math.floor(Math.random() * 10000),
+        text: input
+
+    });
 
     setInput("");
   };
@@ -19,7 +26,7 @@ const Input = () => {
   };
   
   return (
-<div>
+
       
 <div class="input-group mb-3">
 <form class="d-flex input-group mb-3" onSubmit={handleSubmit}>
@@ -32,12 +39,8 @@ const Input = () => {
  />
   <button class="btn btn-outline-secondary" >Add todo</button>
 </form>
-  <Listitem
-   item={input}
-   />
 </div>
 
-</div>
   );
 };
 

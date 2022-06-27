@@ -9,3 +9,12 @@ margin-right: 600px;
 
 }
 
+button{
+
+    display: none;
+}
+
+.todo:hover + button, button:hover {
+    display: inline-block;
+    background-color: brown;
+}
