@@ -3,7 +3,6 @@ import Theheader from "./header.jsx";
 //include images into your bundle
 
 import Input from "./input.jsx";
-import Footer from "./footer.jsx";
 import Todo from "./todo.jsx";
 
 //create your first component
@@ -45,7 +44,11 @@ const completeTodo = id =>{
       <Theheader/>
       <Input onSubmit={addTodo}/>
       <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo}/>
-      <Footer/>
+      <footer class="footer mt-auto py-3 bg-light">
+  <div class="container">
+    <span class="text-muted">{todos.filter(todo => !todo.isComplete).length} todos left</span>
+  </div>
+</footer>
     </div>
   );
 };
